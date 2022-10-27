@@ -10,18 +10,43 @@
 </head>
 
 <body>
+    <div class="modal">
+        <div class="card">
+            <h2>Player 1:</h2>
+            <input type="text" value="(player)">
+            <div>
+                <label for="humanRadio">Human: </label>
+                <input id="humanRadio" type="radio" name="player1Type" value="human" checked>
+            </div>
+            <p>Marker: X</p>
+        </div>
+        <div class="card">
+            <h2>Player 2:</h2>
+            <input type="text" value="(bot)">
+            <div>
+                <label for="humanRadio">Human: </label>
+                <input id="humanRadio" type="radio" name="player2Type" value="human">
+                <label for="botRadio">Bot: </label>
+                <input id="botRadio" type="radio" name="player2Type" value="bot" checked>
+            </div>
+            <p>Marker: O</p>
+        </div>
+        <button class="ready">Ready!</button>
+    </div>
+
     <header>
         <h1>Tic</h1>
         <h1>Tac</h1>
         <h1>Toe!</h1>
     </header>
+
     <main>
         <section class="gameArea">
             <div class="cell cell1"></div>
             <div class="cell cell2"></div>
             <div class="cell cell3"></div>
             <div class="cell cell4"></div>
-            <div class="cell cell5 empy"></div>
+            <div class="cell cell5"></div>
             <div class="cell cell6"></div>
             <div class="cell cell7"></div>
             <div class="cell cell8"></div>
@@ -32,7 +57,7 @@
                 <h2>Player</h2>
                 <div class="playerMarker marker">X</div>
             </div>
-            <div>
+            <div class="playerCard">
                 <h2>Bot</h2>
                 <div class="botMarker marker">O</div>
             </div>
