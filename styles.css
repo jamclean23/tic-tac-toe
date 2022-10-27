@@ -1,2 +1,139 @@
 /*CSS Stylesheet*/
 
+:root {
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    grid-template-rows: 2fr 10fr;
+
+}
+
+
+
+
+/*HEADER-----------------------------------*/
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+header :nth-child(2) {
+    transform: rotate(.12turn);
+}
+
+
+
+/*MAIN LAYOUT-------------------------------*/
+
+main {
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+body > * {
+    border: 2px solid black;
+
+}
+
+
+
+/*GAMEBOARD-----------------------------------------------*/
+
+.gameArea {
+    display: grid;
+    grid-template-columns: repeat(3, min(8rem, 15vw));
+    grid-template-rows: repeat(3, min(8rem, 15vw));
+    align-content: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/*Draw game board*/
+.gameArea > * {
+    border: 2px solid black;
+}
+
+.cell1, 
+.cell2,
+.cell3 {
+    border-top: none;
+}
+
+.cell7,
+.cell8,
+.cell9 {
+    border-bottom: none;
+}
+
+.cell1,
+.cell4,
+.cell7 {
+    border-left: none;
+}
+
+.cell3,
+.cell6,
+.cell9 {
+    border-right: none;
+}
+
+.cell {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 6rem;
+    user-select: none;
+}
+
+
+/*SIDEBAR---------------------------------------------------*/
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info > * {
+    border: 2px solid black;
+    flex: 1;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    max-height: 100%;
+    grid-template-rows: 3fr 2fr 10fr;
+    border-radius: 8px;
+    margin: .5rem;
+}
+
+.info > div > h2 {
+    grid-row: 2/3;
+    align-self: end;
+}
+
+.info > div > div {
+    grid-row: 3/4;
+}
+
+.marker {
+    font-size: 4rem;
+}
