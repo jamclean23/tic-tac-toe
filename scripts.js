@@ -71,35 +71,91 @@ let gameBoard = (function() {
     }
 
     function checkForWin() {
-        let XMatrices = {
+        let xMatrices = {
             alongRows: [0, 0, 0],
             alongColumns: [0, 0, 0],
-            alongDiagonal: [0, 0, 0],
-            oppositeDiagonal: [0, 0, 0]
+            alongDiagonal: 0,
+            oppositeDiagonal: 0
 
         };
-        let YMatrices = {
+        let oMatrices = {
             alongRows: [0, 0, 0],
             alongColumns: [0, 0, 0],
-            alongDiagonal: [0, 0, 0],
-            oppositeDiagonal: [0, 0, 0]
+            alongDiagonal: 0,
+            oppositeDiagonal: 0
 
         };
 
             gameCells.forEach((cell, index) => {
-                if (cell.innerText == "X"){
                     if (index <= 2) {
-                        XMatrices.alongRows[0]++;
+                        cell.x = index;
+                        cell.y = 0;
                     } else if (index >= 3 && index <= 5) {
-                        XMatrices.alongRows[1]++;
+                        cell.x = index - 3;
+                        cell.y = 1;
                     } else if (index >= 6) {
-                        XMatrices.alongRows[2]++;
+                        cell.x = index -6;
+                        cell.y = 2;
                     }
-            }
+                    if (cell.innerText == "X") {
+                        xMatrices.alongRows[cell.y]++
+                        xMatrices.alongColumns[cell.x]++;
+                        if (cell.y == cell.x) {
+                            xMatrices.alongDiagonal++;
+                        }
+                        if (cell.y + cell.x == 2) {
+                            xMatrices.oppositeDiagonal++;
+                        }
+                    } else if(cell.innerText == "O") {
+                        oMatrices.alongRows[cell.y]++
+                        oMatrices.alongColumns[cell.x]++;
+                        if (cell.y == cell.x) {
+                            oMatrices.alongDiagonal++;
+                        }
+                        if (cell.y + cell.x == 2) {
+                            oMatrices.oppositeDiagonal++;
+                        }
+                    }
             });
-            console.log(XMatrices.alongRows);
+
+            xMatrices.alongRows.forEach((count) =>{
+                if (count == 3) {
+                    declareWinner("X");
+                }
+            });
+            xMatrices.alongColumns.forEach((count)=>{
+                if (count == 3) {
+                    declareWinner("X");
+                }
+            });
+            if (xMatrices.alongDiagonal == 3) {
+                declareWinner("X");
+            } else if (xMatrices.oppositeDiagonal == 3) {
+                declareWinner("X");
+            }
+
+            oMatrices.alongRows.forEach((count) =>{
+                if (count == 3) {
+                    declareWinner("O");
+                }
+            });
+            oMatrices.alongColumns.forEach((count)=>{
+                if (count == 3) {
+                    declareWinner("O");
+                }
+            });
+            if (oMatrices.alongDiagonal == 3) {
+                declareWinner("O");
+            } else if (oMatrices.oppositeDiagonal == 3) {
+                declareWinner("O");
+            }
+
         } 
 
+    function declareWinner(winner) {
+        console.log(winner + " is the WINNER!");
+    }
+    
     function updateGameBoard() {
         gameCells.forEach((cell, index)=>{
             cell.innerText = cellsStatus[index];
