@@ -23,14 +23,19 @@ let gameBoard = (function() {
     }
 
     function toggleTurn() {
+        const [player1Arrow, player2Arrow] = document.querySelectorAll('.arrow');
+        player2Arrow.classList.toggle('hidden');
+        player1Arrow.classList.toggle('hidden');
         if (turn == players[0]) {
             turn = players[1];
+
         } else {
             turn = players[0];
         }
         if (turn.type == "bot") {
             startBotTurn();
         }
+
     }
 
     function startBotTurn() {
@@ -118,42 +123,83 @@ let gameBoard = (function() {
                     }
             });
 
+            let winnerDeclared = false;
+
             xMatrices.alongRows.forEach((count) =>{
                 if (count == 3) {
-                    declareWinner("X");
+                    declareWinner(players[0].name);
+                    winnerDeclared = true;
                 }
             });
             xMatrices.alongColumns.forEach((count)=>{
                 if (count == 3) {
-                    declareWinner("X");
+                    declareWinner(players[0].name);
+                    winnerDeclared = true;
                 }
             });
             if (xMatrices.alongDiagonal == 3) {
-                declareWinner("X");
+                declareWinner(players[0].name);
+                winnerDeclared = true;
             } else if (xMatrices.oppositeDiagonal == 3) {
-                declareWinner("X");
+                declareWinner(players[0].name);
+                winnerDeclared = true;
             }
 
             oMatrices.alongRows.forEach((count) =>{
                 if (count == 3) {
-                    declareWinner("O");
+                    declareWinner(players[1].name);
+                    winnerDeclared = true;
+
                 }
             });
             oMatrices.alongColumns.forEach((count)=>{
                 if (count == 3) {
-                    declareWinner("O");
+                    declareWinner(players[1].name);
+                    winnerDeclared = true;
                 }
             });
             if (oMatrices.alongDiagonal == 3) {
-                declareWinner("O");
+                declareWinner(players[1].name);
+                winnerDeclared = true;
             } else if (oMatrices.oppositeDiagonal == 3) {
-                declareWinner("O");
+                declareWinner(players[1].name);
+                winnerDeclared = true;
+            }
+
+            //check for tie
+            if (winnerDeclared == false) {
+                let tie = true;
+                gameCells.forEach((cell)=>{
+                    if (!(cell.innerText)) {
+                        tie = false;
+                    }
+                });
+                if (tie) {
+                    declareWinner("tie");
+                }
             }
 
         } 
 
     function declareWinner(winner) {
         console.log(winner + " is the WINNER!");
+        const displayWinner = document.querySelector('.displayWinner');
+        const replay = document.querySelector('.replay');
+
+        replay.classList.add('visible');
+        replay.addEventListener('click', ()=>{
+            location.reload();
+        });
+
+        if (winner == "tie") {
+            displayWinner.innerText = "It's a tie!"
+        } else {
+            displayWinner.innerText = winner + " has won!!";
+        }
+
+        gameCells.forEach((cell)=>{
+            cell.classList.add('fade');
+        });
     }
     
     function updateGameBoard() {

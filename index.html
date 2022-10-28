@@ -13,7 +13,7 @@
     <div class="modal">
         <div class="card">
             <h2>Player 1:</h2>
-            <input type="text" value="(player)">
+            <input type="text" value="(player1)">
             <div>
                 <label for="humanRadio">Human: </label>
                 <input id="humanRadio" type="radio" name="player1Type" value="human" checked>
@@ -22,7 +22,7 @@
         </div>
         <div class="card">
             <h2>Player 2:</h2>
-            <input type="text" value="(bot)">
+            <input type="text" value="(player2)">
             <div>
                 <label for="humanRadio">Human: </label>
                 <input id="humanRadio" type="radio" name="player2Type" value="human">
@@ -41,6 +41,8 @@
     </header>
 
     <main>
+        <div class="displayWinner"></div>
+        <button class="replay">Play Again?</button>
         <section class="gameArea">
             <div class="cell cell1"></div>
             <div class="cell cell2"></div>
@@ -56,10 +58,12 @@
             <div class="playerCard">
                 <h2>Player</h2>
                 <div class="playerMarker marker">X</div>
+                <div class="player1Arrow arrow hidden"></div>
             </div>
             <div class="playerCard">
                 <h2>Bot</h2>
                 <div class="botMarker marker">O</div>
+                <div class="player2Arrow arrow"></div>
             </div>
 
         </section>
