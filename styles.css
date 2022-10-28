@@ -22,7 +22,7 @@ body {
     min-width: 100vw;
     max-height: 100vh;
     max-width: 100vw;
-    grid-template-rows: 2fr 10fr;
+    grid-template-rows: 16.5vh 10fr;
     overflow: hidden;
 
 }
@@ -313,19 +313,22 @@ body > * {
 
     main {
         grid-template-columns: 1fr;
-        grid-template-rows: 10fr 2fr;
+        grid-template-rows: 2fr 10fr;
 
     }
 
     .gameArea {
         grid-column: 1/3;
         grid-row: 1/2;
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
     }
 
     .info {
         flex-direction: row;
         width: 75%;
         justify-self: center;
+        height: 10vh;
     }
 
 
