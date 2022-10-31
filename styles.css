@@ -148,6 +148,7 @@ body > * {
 
 .replay.visible {
     display: block;
+    z-index: 1;
 }
 
 
