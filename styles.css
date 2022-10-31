@@ -341,6 +341,28 @@ body > * {
         top: 25%;
     }
 
+    .arrow {
+        transform: rotate(.75turn);
+    }
+
+    .player1Arrow {
+        position: absolute;
+        bottom: -3rem;
+        left: 20%;
+        border-left: 30px solid black;
+        border-right: 30px solid transparent;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+    }
+    .player2Arrow {
+        position: absolute;
+        bottom: -3rem;
+        left: 70%;
+        border-left: 30px solid black;
+        border-right: 30px solid transparent;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+    }
 
 }
 
