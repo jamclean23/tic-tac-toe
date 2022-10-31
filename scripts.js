@@ -252,7 +252,10 @@ let gameBoard = (function() {
         console.log(winner + " is the WINNER!");
         const displayWinner = document.querySelector('.displayWinner');
         const replay = document.querySelector('.replay');
+        const [player1Arrow, player2Arrow] = document.querySelectorAll('.arrow');
 
+        player1Arrow.classList.add("hidden");
+        player2Arrow.classList.add("hidden");
         replay.classList.add('visible');
         replay.addEventListener('click', ()=>{
             location.reload();

@@ -329,6 +329,8 @@ body > * {
         width: 75%;
         justify-self: center;
         height: 20vh;
+        position: fixed;
+        bottom: 4rem;
     }
 
     .cell {
@@ -338,6 +340,8 @@ body > * {
     }
 
     .displayWinner {
+        position: fixed;
+        left: 50%;
         top: 25%;
     }
 
@@ -364,5 +368,10 @@ body > * {
         border-bottom: 30px solid transparent;
     }
 
+    .replay{
+        position: fixed;
+        top: 30%;
+        left: 50%
+    }
 }
 
