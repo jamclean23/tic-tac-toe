@@ -328,7 +328,17 @@ body > * {
         flex-direction: row;
         width: 75%;
         justify-self: center;
-        height: 10vh;
+        height: 20vh;
+    }
+
+    .cell {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .displayWinner {
+        top: 25%;
     }
 
 
